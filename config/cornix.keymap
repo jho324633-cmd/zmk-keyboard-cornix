@@ -137,13 +137,13 @@
         compatible = "zmk,combos";
 
         cb_ltm {
-            bindings = <&kp ESC>;
+            bindings = <&kp K_COPY>;
             key-positions = <17 16>;
             layers = <0>;
         };
 
         cb_lm {
-            bindings = <&kp CAPS>;
+            bindings = <&kp LOCKING_CAPS>;
             key-positions = <14 16>;
             layers = <0>;
         };
@@ -173,6 +173,16 @@
             bindings = <&kp BACKSPACE>;
             key-positions = <18 19>;
         };
+
+        paste {
+            bindings = <&kp K_PASTE>;
+            key-positions = <17 15>;
+        };
+
+        CUT {
+            bindings = <&kp K_CUT>;
+            key-positions = <17 14>;
+        };
     };
 
     keymap {
@@ -190,13 +200,13 @@
 
             bindings = <
 &kp TAB           &kp Q          &kp W         &kp E         &kp R                &kp T                          &kp Y      &kp U                &kp I         &kp O         &kp P             &kp BSLH
-&mo 2             &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                          &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
-&kp LEFT_SHIFT    &kp Z          &kp X         &kp C         &kp V                &kp B      &kp ESC  &kp ENTER  &kp N      &kp M                &kp COMMA     &kp DOT       &kp FSLH          &mo 1
+&kp CAPS          &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                          &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI  &kp SQT
+&kp LEFT_SHIFT    &kp Z          &kp X         &kp C         &kp V                &kp B      &kp ESC  &kp ENTER  &kp N      &kp M                &kp COMMA     &kp DOT       &kp FSLH          &mo 3
 &kp LEFT_CONTROL  &kp LEFT_WIN   &kp LEFT_ALT  &mo 2         &kp BACKSPACE        &kp SPACE                      &kp ENTER  &kp DELETE           &mo 1         &bt BT_SEL 2  &bt BT_SEL 1      &bt BT_SEL 0
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_BRI_UP C_BRI_DEC>,
+                <&inc_dec_kp UP_ARROW DOWN>,
                 <&inc_dec_kp RIGHT LEFT>;
         };
 
@@ -211,18 +221,18 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                  &kp NUMBER_6   &kp N7    &kp N8        &kp N9          &kp N0            &kp MINUS
-&kp TILDE  &kp EXCL      &kp AT        &kp HASH      &trans        &trans                  &kp PAGE_UP    &kp LEFT  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT         &kp EQUAL
-&trans     &trans        &trans        &trans        &trans        &trans  &trans  &trans  &kp PAGE_DOWN  &kp HOME  &kp END       &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans     &trans        &trans        &trans        &trans        &trans                  &trans         &trans    &trans        &trans          &trans            &trans
+&kp TILDE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                       &kp NUMBER_6   &kp N7    &kp N8        &kp N9          &kp N0            &kp MINUS
+&kp GRAVE  &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp PAGE_UP    &kp LEFT  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT         &kp EQUAL
+&trans     &trans        &trans        &trans        &trans        &trans       &trans  &trans  &kp PAGE_DOWN  &kp HOME  &kp END       &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans     &trans        &trans        &trans        &trans        &trans                       &trans         &trans    &trans        &trans          &trans            &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
+                <&inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
-        layer_3 {
+        layer_2 {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                  &kp F7     &kp F8    &kp F9   &kp F10   &kp F11     &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans                  &kp PG_UP  &kp LEFT  &kp UP   &kp DOWN  &kp RIGHT   &trans
@@ -233,6 +243,24 @@
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp LS(RIGHT) LS(LEFT)>;
+        };
+
+        layer_3 {
+            bindings = <
+&kp TILDE  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                  &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE
+&trans     &trans           &trans       &trans    &trans      &trans                       &trans     &trans         &trans        &trans                &trans                 &kp PLUS
+&trans     &trans           &trans       &trans    &trans      &trans       &trans  &trans  &trans     &trans         &trans        &trans                &trans                 &trans
+&trans     &trans           &trans       &trans    &trans      &trans                       &trans     &trans         &trans        &trans                &trans                 &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
         };
     };
 };
