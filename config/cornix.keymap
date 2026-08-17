@@ -178,11 +178,6 @@
             bindings = <&kp K_PASTE>;
             key-positions = <17 15>;
         };
-
-        CUT {
-            bindings = <&kp K_CUT>;
-            key-positions = <17 14>;
-        };
     };
 
     keymap {
